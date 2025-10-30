@@ -34,15 +34,29 @@ int main()
 
     long *ptr = &pointer.pointer;
 
-    float a = (float)34 / 4;
+    float a = 34 / 4;
+    float xPos = 3;
+    float yPos = 26;
+
+    if (yPos / xPos > 8.6)
+    {
+        printf("%s\n", "Correct");
+    }
+
+    xPos = 3;
+    yPos = 29;
+
+    if (yPos / xPos > 9.6)
+    {
+        printf("%s %0.1f\n", "Number is More than 9.6 Answer: ", yPos / xPos);
+    }
 
     if (sizeof(pointer.pointer) > 1)
-
     {
         printf("Size Is Larger than 1\n");
     }
 
-    printf("%0.1f\n", a);
+    printf("%f\n", &a);
 
     if (&ptr == NULL)
     {
