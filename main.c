@@ -5,6 +5,12 @@
 #define MESSAGE "ENTER A NUMBER: "
 #define endMessage "End of Program"
 
+union Data
+{
+    int i;
+    float f;
+};
+
 typedef struct
 {
 
@@ -16,6 +22,7 @@ typedef struct
 
 int main()
 {
+
     printf("%s\n", NAME_PROGRAM);
 
     Pointers pointer;
@@ -27,10 +34,15 @@ int main()
 
     long *ptr = &pointer.pointer;
 
+    float a = (float)34 / 4;
+
     if (sizeof(pointer.pointer) > 1)
+
     {
         printf("Size Is Larger than 1\n");
     }
+
+    printf("%0.1f\n", a);
 
     if (&ptr == NULL)
     {
@@ -45,5 +57,5 @@ int main()
 
     printf("%s\n", endMessage);
     ptr = NULL;
-    return 0;
+    return (int)0;
 }
