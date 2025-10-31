@@ -1,75 +1,52 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+#include <Windows.h>
 
-#define NAME_PROGRAM "Welcome Basic Application to Learn C"
-#define MESSAGE "ENTER A NUMBER: "
-#define endMessage "End of Program"
-
-union Data
-{
-    int i;
-    float f;
-};
-
-typedef struct
-{
-
-    long pointer;
-    char name[1024];
-    long size;
-
-} Pointers;
+#define OUTPUT_MESSAGE "Enter Guess to Number: "
+#define ANOTHER_OUTPUT "Enter a Another Guess: "
 
 int main()
 {
+    int i = 0;
+    srand(time(NULL));
+    int randNum = rand() % 10 * 2;
+    // prints out 1 to 18 to Screen
 
-    printf("%s\n", NAME_PROGRAM);
+    printf("%s", OUTPUT_MESSAGE);
+    scanf_s("%d", &i);
 
-    Pointers pointer;
-
-    strcpy(pointer.name, "newInt");
-
-    printf("%s", MESSAGE);
-    scanf("%d", &pointer.pointer);
-
-    long *ptr = &pointer.pointer;
-
-    float a = 34 / 4;
-    float xPos = 3;
-    float yPos = 26;
-
-    if (yPos / xPos > 8.6)
+    for (i = 0; i < 1; i += 1)
     {
-        printf("%s\n", "Correct");
+
+        if (i == randNum)
+        {
+            printf("%s", "Correct");
+            break;
+            exit(0);
+        }
+
+        else
+        {
+            Sleep(5000);
+            printf("%s", ANOTHER_OUTPUT);
+            scanf_s("%d", &i);
+
+            if (i != randNum)
+            {
+                printf("Not Correct Number was: %d", randNum);
+            }
+            else
+            {
+                printf("Correct");
+                break;
+                exit(0);
+            }
+        }
     }
 
-    xPos = 3;
-    yPos = 29;
+    system("pause > 0");
+    exit(0);
 
-    if (yPos / xPos > 9.6)
-    {
-        printf("%s %0.1f\n", "Number is More than 9.6 Answer: ", yPos / xPos);
-    }
-
-    if (sizeof(pointer.pointer) > 1)
-    {
-        printf("Size Is Larger than 1\n");
-    }
-
-    printf("%f\n", &a);
-
-    if (&ptr == NULL)
-    {
-        printf("Null is Supported");
-    }
-
-    else
-    {
-        printf("The Pointer of %s is: %d\n", pointer.name, *ptr);
-        printf("Size: %d\n", sizeof(pointer.pointer));
-    }
-
-    printf("%s\n", endMessage);
-    ptr = NULL;
-    return (int)0;
+    return 0;
 }
