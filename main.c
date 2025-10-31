@@ -5,6 +5,7 @@
 
 #define OUTPUT_MESSAGE "Enter Guess to Number: "
 #define ANOTHER_OUTPUT "Enter a Another Guess: "
+#define PLAY_OR_NO "Do You Want to Play or No: "
 
 int main()
 {
@@ -13,21 +14,26 @@ int main()
     int randNum = rand() % 10 * 2;
     // prints out 1 to 18 to Screen
 
-    printf("%s", OUTPUT_MESSAGE);
-    scanf_s("%d", &i);
+    char answer[1000];
+    printf("%s", PLAY_OR_NO);
+    scanf("%s", answer);
 
-    for (i = 0; i < 1; i += 1)
+    if (answer == "Y" || "y")
     {
 
-        if (i == randNum)
-        {
-            printf("%s", "Correct");
-            break;
-            exit(0);
-        }
+        printf("%s", OUTPUT_MESSAGE);
+        scanf_s("%d", &i);
 
-        else
+        for (i = 0; i < 1; i += 1)
         {
+
+            if (i == randNum)
+            {
+                printf("%s", "Correct");
+                break;
+                exit(0);
+            }
+
             Sleep(5000);
             printf("%s", ANOTHER_OUTPUT);
             scanf_s("%d", &i);
@@ -35,14 +41,18 @@ int main()
             if (i != randNum)
             {
                 printf("Not Correct Number was: %d", randNum);
-            }
-            else
-            {
-                printf("Correct");
                 break;
                 exit(0);
             }
+
+            printf("Correct");
+            break;
+            exit(0);
         }
+    }
+    else
+    {
+        printf("%s", "Thanks for Running Application");
     }
 
     system("pause > 0");
